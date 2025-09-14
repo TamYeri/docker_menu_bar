@@ -10,6 +10,7 @@
 
 // Menu Items - General
 "refresh" = "Refresh";
+"donate" = "Donate";
 "quit" = "Quit";
 
 // Docker Status
@@ -45,4 +46,5 @@
 "logs_accessibility" = "Logs";
 "delete_accessibility" = "Delete";
 "refresh_accessibility" = "Refresh";
+"donate_accessibility" = "Donate";
 "quit_accessibility" = "Quit";

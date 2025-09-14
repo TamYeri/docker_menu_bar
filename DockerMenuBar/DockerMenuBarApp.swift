@@ -83,7 +83,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     refreshItem2.image = NSImage(systemSymbolName: "arrow.clockwise.circle", accessibilityDescription: NSLocalizedString("refresh_accessibility", comment: "Refresh accessibility"))
                     menu.addItem(refreshItem2)
                     
-                    menu.addItem(NSMenuItem.separator())
+                    let donateItem2 = NSMenuItem(title: NSLocalizedString("donate", comment: "Donate"), action: #selector(self.openDonationPage), keyEquivalent: "")
+                    donateItem2.image = NSImage(systemSymbolName: "heart.fill", accessibilityDescription: NSLocalizedString("donate_accessibility", comment: "Donate accessibility"))
+                    menu.addItem(donateItem2)
                     
                     let quitItem2 = NSMenuItem(title: NSLocalizedString("quit", comment: "Quit"), action: #selector(self.quit), keyEquivalent: "q")
                     quitItem2.image = NSImage(systemSymbolName: "power", accessibilityDescription: NSLocalizedString("quit_accessibility", comment: "Quit accessibility"))
@@ -157,7 +159,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     refreshItem.image = NSImage(systemSymbolName: "arrow.clockwise.circle", accessibilityDescription: NSLocalizedString("refresh_accessibility", comment: "Refresh accessibility"))
                     menu.addItem(refreshItem)
                     
-                    menu.addItem(NSMenuItem.separator())
+                    let donateItem = NSMenuItem(title: NSLocalizedString("donate", comment: "Donate"), action: #selector(self.openDonationPage), keyEquivalent: "")
+                    donateItem.image = NSImage(systemSymbolName: "heart.fill", accessibilityDescription: NSLocalizedString("donate_accessibility", comment: "Donate accessibility"))
+                    menu.addItem(donateItem)
                     
                     let quitItem = NSMenuItem(title: NSLocalizedString("quit", comment: "Quit"), action: #selector(self.quit), keyEquivalent: "q")
                     quitItem.image = NSImage(systemSymbolName: "power", accessibilityDescription: NSLocalizedString("quit_accessibility", comment: "Quit accessibility"))
@@ -234,6 +238,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc private func showLogs(_ sender: NSMenuItem) {
         guard let containerID = sender.representedObject as? String else { return }
         dockerManager.showLogs(containerID: containerID)
+    }
+    
+    @objc private func openDonationPage() {
+        if let url = URL(string: "https://www.iddef.org/") {
+            NSWorkspace.shared.open(url)
+        }
     }
     
     @objc private func quit() {

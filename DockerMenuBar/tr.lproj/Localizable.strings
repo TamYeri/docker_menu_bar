@@ -10,6 +10,7 @@
 
 // Menu Items - General
 "refresh" = "Yenile";
+"donate" = "Bağış Yap";
 "quit" = "Çıkış";
 
 // Docker Status
@@ -45,4 +46,5 @@
 "logs_accessibility" = "Loglar";
 "delete_accessibility" = "Sil";
 "refresh_accessibility" = "Yenile";
+"donate_accessibility" = "Bağış Yap";
 "quit_accessibility" = "Çıkış";
