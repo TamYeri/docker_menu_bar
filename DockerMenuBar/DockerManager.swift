@@ -67,7 +67,7 @@ class DockerManager {
             appleScript.executeAndReturnError(&errorInfo)
             
             if let error = errorInfo {
-                print("Terminal AppleScript Error: \(error)")
+                print("\(NSLocalizedString("terminal_applescript_error", comment: "Terminal AppleScript Error")): \(error)")
             }
         }
     }
@@ -87,7 +87,7 @@ class DockerManager {
             appleScript.executeAndReturnError(&errorInfo)
             
             if let error = errorInfo {
-                print("Logs AppleScript Error: \(error)")
+                print("\(NSLocalizedString("logs_applescript_error", comment: "Logs AppleScript Error")): \(error)")
             }
         }
     }
@@ -165,7 +165,7 @@ class DockerManager {
         }
         
         // Sistem PATH'inde docker'ı ara
-        return "which docker > /dev/null 2>&1 && " + command + " || echo 'ERROR: Docker bulunamadı. Docker Engine kurulu değil veya PATH'te yok.'"
+        return "which docker > /dev/null 2>&1 && " + command + " || echo '\(NSLocalizedString("docker_not_found", comment: "Docker not found"))'"
     }
     
     private func parseContainers(from output: String) -> [DockerContainer] {

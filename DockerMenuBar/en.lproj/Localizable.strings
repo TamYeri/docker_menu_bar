@@ -1,0 +1,48 @@
+/*
+  Localizable.strings
+  DockerMenuBar - English
+  
+  Created by Mesut KURT on 14.09.2025.
+*/
+
+// MenuBar
+"docker_menubar" = "Docker MenuBar";
+
+// Menu Items - General
+"refresh" = "Refresh";
+"quit" = "Quit";
+
+// Docker Status
+"docker_not_running" = "⚠️ Docker Engine not running";
+"start_docker_engine" = "Start Docker Engine";
+"no_containers_found" = "No Docker containers found";
+
+// Container Actions
+"start" = "Start";
+"stop" = "Stop";
+"restart" = "Restart";
+"open_bash" = "Open Bash";
+"show_logs" = "Show Logs";
+"delete" = "Delete";
+
+// Container Delete Confirmation
+"container_delete_title" = "Delete Container";
+"container_delete_message" = "Are you sure you want to delete this container?";
+"delete_button" = "Delete";
+"cancel_button" = "Cancel";
+
+// Error Messages
+"terminal_applescript_error" = "Terminal AppleScript Error";
+"logs_applescript_error" = "Logs AppleScript Error";
+"docker_not_found" = "ERROR: Docker not found. Docker Engine is not installed or not in PATH.";
+
+// Accessibility
+"docker_icon_accessibility" = "Docker";
+"stop_accessibility" = "Stop";
+"restart_accessibility" = "Restart";
+"start_accessibility" = "Start";
+"terminal_accessibility" = "Terminal";
+"logs_accessibility" = "Logs";
+"delete_accessibility" = "Delete";
+"refresh_accessibility" = "Refresh";
+"quit_accessibility" = "Quit";

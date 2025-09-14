@@ -1,0 +1,48 @@
+/*
+  Localizable.strings
+  DockerMenuBar - Turkish
+  
+  Created by Mesut KURT on 14.09.2025.
+*/
+
+// MenuBar
+"docker_menubar" = "Docker MenuBar";
+
+// Menu Items - General
+"refresh" = "Yenile";
+"quit" = "Çıkış";
+
+// Docker Status
+"docker_not_running" = "⚠️ Docker Engine çalışmıyor";
+"start_docker_engine" = "Docker Engine'i başlatın";
+"no_containers_found" = "Docker konteyner bulunamadı";
+
+// Container Actions
+"start" = "Başlat";
+"stop" = "Durdur";
+"restart" = "Yeniden Başlat";
+"open_bash" = "Bash Ekranını Aç";
+"show_logs" = "Logları Göster";
+"delete" = "Sil";
+
+// Container Delete Confirmation
+"container_delete_title" = "Konteyner Silme";
+"container_delete_message" = "Bu konteyneri silmek istediğinizden emin misiniz?";
+"delete_button" = "Sil";
+"cancel_button" = "İptal";
+
+// Error Messages
+"terminal_applescript_error" = "Terminal AppleScript Hatası";
+"logs_applescript_error" = "Loglar AppleScript Hatası";
+"docker_not_found" = "ERROR: Docker bulunamadı. Docker Engine kurulu değil veya PATH'te yok.";
+
+// Accessibility
+"docker_icon_accessibility" = "Docker";
+"stop_accessibility" = "Durdur";
+"restart_accessibility" = "Yeniden Başlat";
+"start_accessibility" = "Başlat";
+"terminal_accessibility" = "Terminal";
+"logs_accessibility" = "Loglar";
+"delete_accessibility" = "Sil";
+"refresh_accessibility" = "Yenile";
+"quit_accessibility" = "Çıkış";

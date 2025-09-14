@@ -49,7 +49,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 button.image = coloredIcon
             }
             
-            button.toolTip = "Docker MenuBar"
+            button.toolTip = NSLocalizedString("docker_menubar", comment: "MenuBar tooltip")
         }
         
         updateMenu()
@@ -69,24 +69,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 DispatchQueue.main.async {
                     menu.removeAllItems()
                     
-                    let errorItem = NSMenuItem(title: "⚠️ Docker Engine çalışmıyor", action: nil, keyEquivalent: "")
+                    let errorItem = NSMenuItem(title: NSLocalizedString("docker_not_running", comment: "Docker not running"), action: nil, keyEquivalent: "")
                     errorItem.isEnabled = false
                     menu.addItem(errorItem)
                     
-                    let infoItem = NSMenuItem(title: "Docker Engine'i başlatın", action: nil, keyEquivalent: "")
+                    let infoItem = NSMenuItem(title: NSLocalizedString("start_docker_engine", comment: "Start Docker Engine"), action: nil, keyEquivalent: "")
                     infoItem.isEnabled = false
                     menu.addItem(infoItem)
                     
                     menu.addItem(NSMenuItem.separator())
                     
-                    let refreshItem2 = NSMenuItem(title: "Yenile", action: #selector(self.refreshContainers), keyEquivalent: "r")
-                    refreshItem2.image = NSImage(systemSymbolName: "arrow.clockwise.circle", accessibilityDescription: "Yenile")
+                    let refreshItem2 = NSMenuItem(title: NSLocalizedString("refresh", comment: "Refresh"), action: #selector(self.refreshContainers), keyEquivalent: "r")
+                    refreshItem2.image = NSImage(systemSymbolName: "arrow.clockwise.circle", accessibilityDescription: NSLocalizedString("refresh_accessibility", comment: "Refresh accessibility"))
                     menu.addItem(refreshItem2)
                     
                     menu.addItem(NSMenuItem.separator())
                     
-                    let quitItem2 = NSMenuItem(title: "Çıkış", action: #selector(self.quit), keyEquivalent: "q")
-                    quitItem2.image = NSImage(systemSymbolName: "power", accessibilityDescription: "Çıkış")
+                    let quitItem2 = NSMenuItem(title: NSLocalizedString("quit", comment: "Quit"), action: #selector(self.quit), keyEquivalent: "q")
+                    quitItem2.image = NSImage(systemSymbolName: "power", accessibilityDescription: NSLocalizedString("quit_accessibility", comment: "Quit accessibility"))
                     menu.addItem(quitItem2)
                     
                     self.statusItem.menu = menu
@@ -100,7 +100,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     menu.removeAllItems()
                     
                     if containers.isEmpty {
-                        let noContainersItem = NSMenuItem(title: "Docker konteyner bulunamadı", action: nil, keyEquivalent: "")
+                        let noContainersItem = NSMenuItem(title: NSLocalizedString("no_containers_found", comment: "No containers found"), action: nil, keyEquivalent: "")
                         noContainersItem.isEnabled = false
                         menu.addItem(noContainersItem)
                     } else {
@@ -114,31 +114,31 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                             
                             // Alt menüler
                             if container.isRunning {
-                                let stopItem = NSMenuItem(title: "Durdur", action: #selector(self.stopContainer(_:)), keyEquivalent: "")
-                                stopItem.image = NSImage(systemSymbolName: "stop.fill", accessibilityDescription: "Durdur")
+                                let stopItem = NSMenuItem(title: NSLocalizedString("stop", comment: "Stop"), action: #selector(self.stopContainer(_:)), keyEquivalent: "")
+                                stopItem.image = NSImage(systemSymbolName: "stop.fill", accessibilityDescription: NSLocalizedString("stop_accessibility", comment: "Stop accessibility"))
                                 containerMenu.addItem(stopItem)
                                 
-                                let restartItem = NSMenuItem(title: "Yeniden Başlat", action: #selector(self.restartContainer(_:)), keyEquivalent: "")
-                                restartItem.image = NSImage(systemSymbolName: "arrow.clockwise", accessibilityDescription: "Yeniden Başlat")
+                                let restartItem = NSMenuItem(title: NSLocalizedString("restart", comment: "Restart"), action: #selector(self.restartContainer(_:)), keyEquivalent: "")
+                                restartItem.image = NSImage(systemSymbolName: "arrow.clockwise", accessibilityDescription: NSLocalizedString("restart_accessibility", comment: "Restart accessibility"))
                                 containerMenu.addItem(restartItem)
                                 
-                                let terminalItem = NSMenuItem(title: "Bash Ekranını Aç", action: #selector(self.openTerminal(_:)), keyEquivalent: "")
-                                terminalItem.image = NSImage(systemSymbolName: "terminal", accessibilityDescription: "Terminal")
+                                let terminalItem = NSMenuItem(title: NSLocalizedString("open_bash", comment: "Open Bash"), action: #selector(self.openTerminal(_:)), keyEquivalent: "")
+                                terminalItem.image = NSImage(systemSymbolName: "terminal", accessibilityDescription: NSLocalizedString("terminal_accessibility", comment: "Terminal accessibility"))
                                 containerMenu.addItem(terminalItem)
                                 
-                                let logsItem = NSMenuItem(title: "Logları Göster", action: #selector(self.showLogs(_:)), keyEquivalent: "")
-                                logsItem.image = NSImage(systemSymbolName: "doc.text", accessibilityDescription: "Loglar")
+                                let logsItem = NSMenuItem(title: NSLocalizedString("show_logs", comment: "Show Logs"), action: #selector(self.showLogs(_:)), keyEquivalent: "")
+                                logsItem.image = NSImage(systemSymbolName: "doc.text", accessibilityDescription: NSLocalizedString("logs_accessibility", comment: "Logs accessibility"))
                                 containerMenu.addItem(logsItem)
                             } else {
-                                let startItem = NSMenuItem(title: "Başlat", action: #selector(self.startContainer(_:)), keyEquivalent: "")
-                                startItem.image = NSImage(systemSymbolName: "play.fill", accessibilityDescription: "Başlat")
+                                let startItem = NSMenuItem(title: NSLocalizedString("start", comment: "Start"), action: #selector(self.startContainer(_:)), keyEquivalent: "")
+                                startItem.image = NSImage(systemSymbolName: "play.fill", accessibilityDescription: NSLocalizedString("start_accessibility", comment: "Start accessibility"))
                                 containerMenu.addItem(startItem)
                             }
                             
                             containerMenu.addItem(NSMenuItem.separator())
                             
-                            let removeItem = NSMenuItem(title: "Sil", action: #selector(self.removeContainer(_:)), keyEquivalent: "")
-                            removeItem.image = NSImage(systemSymbolName: "trash", accessibilityDescription: "Sil")
+                            let removeItem = NSMenuItem(title: NSLocalizedString("delete", comment: "Delete"), action: #selector(self.removeContainer(_:)), keyEquivalent: "")
+                            removeItem.image = NSImage(systemSymbolName: "trash", accessibilityDescription: NSLocalizedString("delete_accessibility", comment: "Delete accessibility"))
                             containerMenu.addItem(removeItem)
                             
                             // Her alt menü öğesine konteyner ID'sini ekle
@@ -153,14 +153,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     
                     menu.addItem(NSMenuItem.separator())
                     
-                    let refreshItem = NSMenuItem(title: "Yenile", action: #selector(self.refreshContainers), keyEquivalent: "r")
-                    refreshItem.image = NSImage(systemSymbolName: "arrow.clockwise.circle", accessibilityDescription: "Yenile")
+                    let refreshItem = NSMenuItem(title: NSLocalizedString("refresh", comment: "Refresh"), action: #selector(self.refreshContainers), keyEquivalent: "r")
+                    refreshItem.image = NSImage(systemSymbolName: "arrow.clockwise.circle", accessibilityDescription: NSLocalizedString("refresh_accessibility", comment: "Refresh accessibility"))
                     menu.addItem(refreshItem)
                     
                     menu.addItem(NSMenuItem.separator())
                     
-                    let quitItem = NSMenuItem(title: "Çıkış", action: #selector(self.quit), keyEquivalent: "q")
-                    quitItem.image = NSImage(systemSymbolName: "power", accessibilityDescription: "Çıkış")
+                    let quitItem = NSMenuItem(title: NSLocalizedString("quit", comment: "Quit"), action: #selector(self.quit), keyEquivalent: "q")
+                    quitItem.image = NSImage(systemSymbolName: "power", accessibilityDescription: NSLocalizedString("quit_accessibility", comment: "Quit accessibility"))
                     menu.addItem(quitItem)
                     
                     self.statusItem.menu = menu
@@ -209,11 +209,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc private func removeContainer(_ sender: NSMenuItem) {
         guard let containerID = sender.representedObject as? String else { return }
         let alert = NSAlert()
-        alert.messageText = "Konteyner Silme"
-        alert.informativeText = "Bu konteyneri silmek istediğinizden emin misiniz?"
+        alert.messageText = NSLocalizedString("container_delete_title", comment: "Container delete title")
+        alert.informativeText = NSLocalizedString("container_delete_message", comment: "Container delete message")
         alert.alertStyle = .warning
-        alert.addButton(withTitle: "Sil")
-        alert.addButton(withTitle: "İptal")
+        alert.addButton(withTitle: NSLocalizedString("delete_button", comment: "Delete button"))
+        alert.addButton(withTitle: NSLocalizedString("cancel_button", comment: "Cancel button"))
         
         if alert.runModal() == .alertFirstButtonReturn {
             dockerManager.removeContainer(id: containerID) { success in
