@@ -5,18 +5,7 @@
 //  Created by Mesut KURT on 14.09.2025.
 //
 
-import SwiftUI
-
-@main
-struct DockerMenuBarApp: App {
-    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    
-    var body: some Scene {
-        Settings {
-            EmptyView()
-        }
-    }
-}
+import AppKit
 
 class AppDelegate: NSObject, NSApplicationDelegate {
     private var statusItem: NSStatusItem!
