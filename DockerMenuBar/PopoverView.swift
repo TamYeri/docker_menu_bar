@@ -82,7 +82,7 @@ struct PopoverView: View {
     }
 
     private var containerListView: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             LazyVStack(spacing: 0) {
                 ForEach(viewModel.containers, id: \.id) { container in
                     ContainerRowView(container: container, viewModel: viewModel)
@@ -114,7 +114,7 @@ struct PopoverView: View {
             .buttonStyle(.plain)
         }
         .padding(.horizontal, 12)
-        .padding(.vertical, 8)
+        .padding(.vertical, 4)
     }
 }
 
@@ -149,7 +149,7 @@ struct ContainerRowView: View {
             }
         }
         .padding(.horizontal, 12)
-        .padding(.vertical, 8)
+        .padding(.vertical, 5)
     }
 
     @ViewBuilder
